@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Load Aim Shoot",
+  "version": "1.0",
+  "description": "Boost productivity with Pomodoro timer and website blocking for focused work sessions",
+  "permissions": [
+    "storage",
+    "tabs",
+    "notifications",
+    "webNavigation",
+    "alarms",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background/main.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dashboard.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "dashboard.html",
+        "styles.css",
+        "dashboard.js",
+        "chart.umd.js",
+        "blocked.html",
+        "background/*.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Load Aim Shoot</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 300px;
+      text-align: center;
+      padding: 15px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h2 {
+      color: #2d3748;
+      margin-top: 0;
+    }
+    #timerDisplay {
+      font-size: 42px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #3182ce;
+    }
+    #status {
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: #4299e1;
+      height: 20px;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    #startBtn {
+      background-color: #4caf50;
+      color: white;
+    }
+    #startBtn:hover {
+      background-color: #388e3c;
+    }
+    #stopBtn {
+      background-color: #f44336;
+      color: white;
+    }
+    #stopBtn:hover {
+      background-color: #d32f2f;
+    }
+    #viewDashboard {
+      background-color: #3182ce;
+      color: white;
+      width: 100%;
+      padding: 10px;
+    }
+    #viewDashboard:hover {
+      background-color: #2c5282;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    .divider {
+      height: 1px;
+      background-color: #e2e8f0;
+      margin: 15px 0;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .stats-mini {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #718096;
+    }
+    .stats-mini div {
+      text-align: center;
+      flex: 1;
+    }
+    .stats-mini span {
+      display: block;
+      font-weight: bold;
+      font-size: 16px;
+      color: #4a5568;
+    }
+  </style>
+
+</head>
+<body>
+  <h2>Load Aim Shoot</h2>
+  
+  <select id="habitSelect">
+    <option value="">Pomodoro Focus (25m)</option>
+    <!-- Habits will be loaded here -->
+  </select>
+  
+  <div id="timerDisplay">25:00</div>
+  <div id="status">Ready</div>
+  
+  <div class="button-group">
+    <button id="startBtn">Start Focus</button>
+    <button id="stopBtn" disabled>Stop</button>
+  </div>
+  
+  <div class="divider"></div>
+  
+  <div class="stats-mini">
+    <div>
+      <span id="todayFocus">0</span>
+      Minutes Today
+    </div>
+    <div>
+      <span id="preventedCount">0</span>
+      Distractions Blocked
+    </div>
+    <div>
+      <span id="streakCount">0</span>
+      Streak
+    </div>
+  </div>
+  
+  <div class="divider"></div>
+  
+  <button id="viewDashboard">📊 View Dashboard</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
